@@ -1,12 +1,26 @@
+# YGG Torrent API Docker Container
 FROM python:3.9-slim
+
+# Set working directory
+WORKDIR /app
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
     wget \
-    curl \
-    unzip \
     gnupg \
+    unzip \
+    curl \
     xvfb \
+    fonts-liberation \
+    libasound2 \
+    libatk-bridge2.0-0 \
+    libdrm2 \
+    libxcomposite1 \
+    libxdamage1 \
+    libxrandr2 \
+    libgbm1 \
+    libxss1 \
+    libnss3 \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Google Chrome
@@ -16,41 +30,32 @@ RUN wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add
     && apt-get install -y google-chrome-stable \
     && rm -rf /var/lib/apt/lists/*
 
-# Install ChromeDriver
-RUN CHROME_VERSION=$(google-chrome --version | awk '{print $3}' | cut -d'.' -f1-3) \
-    && CHROMEDRIVER_VERSION=$(curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_${CHROME_VERSION}") \
-    && wget -O /tmp/chromedriver.zip "https://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip" \
-    && unzip /tmp/chromedriver.zip -d /usr/local/bin/ \
-    && chmod +x /usr/local/bin/chromedriver \
-    && rm /tmp/chromedriver.zip
-
-# Set working directory
-WORKDIR /app
-
 # Copy requirements and install Python dependencies
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+COPY requirements_api.txt .
+RUN pip install --no-cache-dir -r requirements_api.txt
 
 # Copy application files
-COPY *.py ./
-COPY config_ubuntu.py ./
+COPY ygg_api.py .
 
 # Create necessary directories
-RUN mkdir -p data logs downloads
+RUN mkdir -p logs data
 
-# Set permissions
-RUN chmod +x *.py
+# Set environment variables
+ENV PYTHONUNBUFFERED=1
+ENV DISPLAY=:99
+ENV CHROME_BIN=/usr/bin/google-chrome
+ENV CHROME_PATH=/usr/bin/google-chrome
 
-# Create non-root user
+# Create a non-root user
 RUN useradd -m -u 1000 ygguser && chown -R ygguser:ygguser /app
 USER ygguser
 
-# Expose port (if needed for web interface)
-EXPOSE 8000
+# Expose port
+EXPOSE 8080
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
-    CMD python3 -c "import requests; requests.get('http://localhost:8000/health', timeout=5)" || exit 1
+    CMD curl -f http://localhost:8080/health || exit 1
 
-# Default command
-CMD ["python3", "ygg_parser_ubuntu.py"]
+# Run the application
+CMD ["python", "ygg_api.py"]

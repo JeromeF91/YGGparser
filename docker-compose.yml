@@ -1,37 +1,29 @@
 version: '3.8'
 
 services:
-  ygg-parser:
+  ygg-api:
     build: .
-    container_name: ygg-parser
-    restart: unless-stopped
-    environment:
-      - YGG_COOKIES=${YGG_COOKIES}
-      - YGG_PASSKEY=${YGG_PASSKEY}
-      - DISPLAY=:99
+    container_name: ygg-torrent-api
+    ports:
+      - "8080:8080"
     volumes:
       - ./data:/app/data
       - ./logs:/app/logs
-      - ./downloads:/app/downloads
-    networks:
-      - ygg-network
-    depends_on:
-      - xvfb
-
-  xvfb:
-    image: selenium/standalone-chrome:latest
-    container_name: ygg-xvfb
+    env_file:
+      - docker.env
     restart: unless-stopped
-    environment:
-      - DISPLAY=:99
-    networks:
-      - ygg-network
-
-networks:
-  ygg-network:
-    driver: bridge
-
-volumes:
-  data:
-  logs:
-  downloads:
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    # Resource limits
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+          cpus: '1.0'
+        reservations:
+          memory: 512M
+          cpus: '0.5'
