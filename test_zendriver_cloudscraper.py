@@ -54,7 +54,7 @@ async def test_zendriver_basic():
             logger.error("❌ Zendriver headless test failed")
             return False
         
-        await browser.close()
+        # Zendriver doesn't have a close method - it's managed automatically
         return True
         
     except Exception as e:
@@ -110,11 +110,9 @@ async def test_zendriver_cloudscraper_integration():
         
         if response.status_code == 200:
             logger.info("✅ Zendriver + Cloudscraper integration test successful")
-            await browser.close()
             return True
         else:
             logger.error(f"❌ Integration test failed: {response.status_code}")
-            await browser.close()
             return False
             
     except Exception as e:
@@ -156,11 +154,9 @@ async def test_ygg_torrent_access():
         
         if response.status_code == 200:
             logger.info("✅ YGG Torrent access test successful")
-            await browser.close()
             return True
         else:
             logger.error(f"❌ YGG Torrent access failed: {response.status_code}")
-            await browser.close()
             return False
             
     except Exception as e:
