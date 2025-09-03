@@ -83,13 +83,13 @@ fi
 # Install system dependencies
 echo "📦 Installing system dependencies..."
 if command -v apt &> /dev/null; then
-    sudo apt install -y wget curl unzip xvfb
+    sudo apt install -y wget curl unzip xvfb x11-utils
 elif command -v yum &> /dev/null; then
-    sudo yum install -y wget curl unzip xorg-x11-server-Xvfb
+    sudo yum install -y wget curl unzip xorg-x11-server-Xvfb xorg-x11-utils
 elif command -v dnf &> /dev/null; then
-    sudo dnf install -y wget curl unzip xorg-x11-server-Xvfb
+    sudo dnf install -y wget curl unzip xorg-x11-server-Xvfb xorg-x11-utils
 elif command -v pacman &> /dev/null; then
-    sudo pacman -S --noconfirm wget curl unzip xorg-server-xvfb
+    sudo pacman -S --noconfirm wget curl unzip xorg-server-xvfb xorg-xdpyinfo
 fi
 
 # Create virtual environment
@@ -138,8 +138,9 @@ echo "   2. Start the API: python3 ygg_api.py"
 echo ""
 echo "🌐 API will be available at: http://localhost:8080"
 echo ""
-echo "💡 If running on a headless server, the API will automatically use headless mode"
-echo "   For better compatibility, you can also run with virtual display:"
-echo "   xvfb-run -a python3 ygg_api.py"
+echo "💡 For headless servers, use one of these options:"
+echo "   Option 1: Force headless mode: python3 ygg_api.py --headless"
+echo "   Option 2: Use virtual display: xvfb-run -a python3 ygg_api.py"
+echo "   Option 3: Set environment: FORCE_HEADLESS=true python3 ygg_api.py"
 echo ""
 echo "📖 For more information, see API_README.md"

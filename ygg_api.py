@@ -122,12 +122,28 @@ def authenticate_with_undetected_chromedriver(username, password):
         
         # Check if running in headless environment (Docker or server without display)
         import os
+        import subprocess
+        
+        # Check if display is actually available
+        display_available = False
+        try:
+            if os.environ.get('DISPLAY'):
+                # Try to check if X server is running
+                result = subprocess.run(['xdpyinfo'], capture_output=True, text=True, timeout=5)
+                display_available = result.returncode == 0
+        except:
+            display_available = False
+        
         is_headless_env = (
             os.path.exists('/.dockerenv') or 
             os.environ.get('DOCKER_CONTAINER') or
             not os.environ.get('DISPLAY') or
+            not display_available or
             os.environ.get('SSH_CLIENT') or
-            os.environ.get('SSH_TTY')
+            os.environ.get('SSH_TTY') or
+            os.environ.get('XVFB_RUN') or  # xvfb-run sets this
+            'xvfb' in os.environ.get('_', '') or  # xvfb-run modifies _ variable
+            os.environ.get('FORCE_HEADLESS', '').lower() == 'true'
         )
         
         if is_headless_env:
@@ -672,6 +688,14 @@ def internal_error(error):
 
 
 if __name__ == '__main__':
+    import sys
+    
+    # Check for command line arguments
+    force_headless = '--headless' in sys.argv or '--force-headless' in sys.argv
+    if force_headless:
+        os.environ['FORCE_HEADLESS'] = 'true'
+        logger.info("Forcing headless mode via command line argument")
+    
     logger.info("Starting YGG Torrent Authentication API...")
     logger.info("Available endpoints:")
     logger.info("  GET  /health - Health check")
@@ -679,5 +703,8 @@ if __name__ == '__main__':
     logger.info("  GET  /auth/status - Check authentication status")
     logger.info("  GET  /categories - Get available categories")
     logger.info("  GET  /rss/<category_id> - Get RSS feed for category")
+    logger.info("")
+    logger.info("Usage: python3 ygg_api.py [--headless]")
+    logger.info("  --headless: Force headless mode (useful for servers without display)")
     
     app.run(host='0.0.0.0', port=8080, debug=False)
