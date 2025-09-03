@@ -163,21 +163,61 @@ def authenticate_with_undetected_chromedriver(username, password):
             options.add_argument('--disable-background-timer-throttling')
             options.add_argument('--disable-backgrounding-occluded-windows')
             options.add_argument('--disable-renderer-backgrounding')
+            # Additional server-specific arguments
+            options.add_argument('--disable-software-rasterizer')
+            options.add_argument('--disable-background-networking')
+            options.add_argument('--disable-default-apps')
+            options.add_argument('--disable-sync')
+            options.add_argument('--disable-translate')
+            options.add_argument('--hide-scrollbars')
+            options.add_argument('--mute-audio')
+            options.add_argument('--no-first-run')
+            options.add_argument('--disable-logging')
+            options.add_argument('--disable-permissions-api')
+            options.add_argument('--disable-presentation-api')
+            options.add_argument('--disable-print-preview')
+            options.add_argument('--disable-speech-api')
+            options.add_argument('--disable-file-system')
+            options.add_argument('--disable-notifications')
+            options.add_argument('--disable-geolocation')
+            options.add_argument('--disable-media-stream')
+            options.add_argument('--disable-client-side-phishing-detection')
+            options.add_argument('--disable-component-extensions-with-background-pages')
+            options.add_argument('--disable-ipc-flooding-protection')
+            options.add_argument('--single-process')  # Use single process for better stability
             logger.info("Running in headless environment - using headless mode")
         else:
             logger.info("Running locally - using non-headless mode for better Cloudflare bypass")
         
         # Use the Chrome path we already checked
         
-        # Create driver with proper error handling
+        # Create driver with proper error handling and timeout
+        import signal
+        
+        def timeout_handler(signum, frame):
+            raise TimeoutError("Chrome driver creation timed out")
+        
         try:
+            # Set a timeout for Chrome driver creation
+            signal.signal(signal.SIGALRM, timeout_handler)
+            signal.alarm(60)  # 60 second timeout
+            
             if chrome_path:
                 logger.info(f"Using Chrome binary: {chrome_path}")
                 driver = uc.Chrome(options=options, browser_executable_path=chrome_path)
             else:
                 logger.info("No Chrome path found, using auto-detection")
                 driver = uc.Chrome(options=options)
+            
+            signal.alarm(0)  # Cancel timeout
+            logger.info("Chrome driver created successfully")
+            
+        except TimeoutError:
+            signal.alarm(0)
+            logger.error("Chrome driver creation timed out after 60 seconds")
+            raise Exception("Chrome driver creation timed out. This might indicate Chrome installation issues or insufficient system resources.")
         except Exception as e:
+            signal.alarm(0)
             logger.error(f"Failed to create Chrome driver: {e}")
             # Try without specifying binary path as fallback (create fresh options)
             try:
@@ -207,9 +247,19 @@ def authenticate_with_undetected_chromedriver(username, password):
                     fallback_options.add_argument('--disable-background-timer-throttling')
                     fallback_options.add_argument('--disable-backgrounding-occluded-windows')
                     fallback_options.add_argument('--disable-renderer-backgrounding')
+                    fallback_options.add_argument('--single-process')
                 
+                # Set timeout for fallback too
+                signal.alarm(60)
                 driver = uc.Chrome(options=fallback_options)
+                signal.alarm(0)
+                logger.info("Fallback Chrome driver created successfully")
+            except TimeoutError:
+                signal.alarm(0)
+                logger.error("Fallback Chrome driver creation also timed out")
+                raise Exception("Both primary and fallback Chrome driver creation timed out. Please check Chrome installation and system resources.")
             except Exception as e2:
+                signal.alarm(0)
                 logger.error(f"Fallback also failed: {e2}")
                 raise Exception(f"Could not create Chrome driver. Please install Chrome/Chromium. Original error: {e}, Fallback error: {e2}")
         
