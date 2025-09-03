@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  ygg-parser:
+    build: .
+    container_name: ygg-parser
+    restart: unless-stopped
+    environment:
+      - YGG_COOKIES=${YGG_COOKIES}
+      - YGG_PASSKEY=${YGG_PASSKEY}
+      - DISPLAY=:99
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - ./downloads:/app/downloads
+    networks:
+      - ygg-network
+    depends_on:
+      - xvfb
+
+  xvfb:
+    image: selenium/standalone-chrome:latest
+    container_name: ygg-xvfb
+    restart: unless-stopped
+    environment:
+      - DISPLAY=:99
+    networks:
+      - ygg-network
+
+networks:
+  ygg-network:
+    driver: bridge
+
+volumes:
+  data:
+  logs:
+  downloads:
