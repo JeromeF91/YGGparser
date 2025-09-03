@@ -34,9 +34,37 @@ BASE_URL = "https://www.yggtorrent.top"
 LOGIN_URL = f"{BASE_URL}/auth/login"
 
 
+def check_chrome_installation():
+    """Check if Chrome/Chromium is properly installed and accessible."""
+    possible_paths = [
+        '/usr/bin/google-chrome',
+        '/usr/bin/google-chrome-stable',
+        '/usr/bin/chromium',
+        '/usr/bin/chromium-browser',
+        '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',  # macOS
+        'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',  # Windows
+        'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe'  # Windows
+    ]
+    
+    found_paths = []
+    for path in possible_paths:
+        if os.path.exists(path):
+            found_paths.append(path)
+    
+    if found_paths:
+        logger.info(f"Found Chrome/Chromium installations: {found_paths}")
+        return found_paths[0]  # Return first found path
+    else:
+        logger.warning("No Chrome/Chromium installation found in common locations")
+        return None
+
+
 def authenticate_with_undetected_chromedriver(username, password):
     """Authenticate using undetected-chromedriver and return cookies."""
     logger.info(f"Starting authentication for user: {username}")
+    
+    # Check Chrome installation first
+    chrome_path = check_chrome_installation()
     
     driver = None
     
@@ -72,11 +100,26 @@ def authenticate_with_undetected_chromedriver(username, password):
         else:
             logger.info("Running locally - using non-headless mode for better Cloudflare bypass")
         
-        # Use Chromium in Docker environment
-        if os.path.exists('/.dockerenv') or os.environ.get('DOCKER_CONTAINER'):
-            driver = uc.Chrome(options=options, browser_executable_path='/usr/bin/chromium')
-        else:
-            driver = uc.Chrome(options=options)
+        # Use the Chrome path we already checked
+        
+        # Create driver with proper binary path
+        try:
+            if chrome_path:
+                logger.info(f"Using Chrome binary: {chrome_path}")
+                driver = uc.Chrome(options=options, browser_executable_path=chrome_path)
+            else:
+                # Let undetected-chromedriver auto-detect
+                logger.info("No Chrome binary found in common locations, using auto-detection")
+                driver = uc.Chrome(options=options)
+        except Exception as e:
+            logger.error(f"Failed to create Chrome driver with binary path: {e}")
+            # Fallback: try without specifying binary path
+            try:
+                logger.info("Trying fallback: Chrome driver without binary path")
+                driver = uc.Chrome(options=options)
+            except Exception as e2:
+                logger.error(f"Fallback also failed: {e2}")
+                raise Exception(f"Could not create Chrome driver. Original error: {e}, Fallback error: {e2}")
         
         logger.info("Navigating to YGG Torrent login page...")
         driver.get(LOGIN_URL)
@@ -256,12 +299,26 @@ def authenticate_with_undetected_chromedriver(username, password):
 
 @app.route('/health', methods=['GET'])
 def health_check():
-    """Health check endpoint."""
-    return jsonify({
+    """Health check endpoint with Chrome installation status."""
+    chrome_path = check_chrome_installation()
+    
+    health_data = {
         'status': 'healthy',
         'timestamp': datetime.now().isoformat(),
-        'service': 'YGG Torrent Authentication API'
-    })
+        'service': 'YGG Torrent Authentication API',
+        'chrome': {
+            'installed': chrome_path is not None,
+            'path': chrome_path
+        }
+    }
+    
+    if chrome_path:
+        health_data['status'] = 'healthy'
+    else:
+        health_data['status'] = 'warning'
+        health_data['message'] = 'Chrome/Chromium not found in common locations'
+    
+    return jsonify(health_data)
 
 
 @app.route('/auth/login', methods=['POST'])
