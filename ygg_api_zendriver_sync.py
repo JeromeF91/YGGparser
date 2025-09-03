@@ -129,9 +129,11 @@ def run_async_auth(username, password):
         
         # Check for Cloudflare challenge
         page_content = loop.run_until_complete(page.get_content())
-        if "cloudflare" in page_content.lower() or "checking your browser" in page_content.lower():
-            logger.info("🛡️ Cloudflare challenge detected, waiting for automatic bypass...")
-            loop.run_until_complete(asyncio.sleep(15))  # Wait longer for Cloudflare
+        if "cloudflare" in page_content.lower() or "checking your browser" in page_content.lower() or "just a moment" in page_content.lower() or "verify you are human" in page_content.lower():
+            logger.info("🛡️ Cloudflare Turnstile challenge detected!")
+            logger.info("⚠️ This challenge requires human interaction and cannot be bypassed automatically")
+            logger.info("💡 Consider using the working undetected-chromedriver API instead")
+            return False
         
         # Wait for page to fully load
         logger.info("⏳ Waiting for page to fully load...")
