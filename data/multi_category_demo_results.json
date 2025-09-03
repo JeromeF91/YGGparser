@@ -1,0 +1,45 @@
+{
+  "categories_tested": 7,
+  "successful_downloads": 7,
+  "downloaded_files": [
+    {
+      "category": "Nintendo_Switch",
+      "file": "data/multi_Nintendo_Switch_Mig Switch Hogwarts Legacy v100 EU XCI S5L0.torrent",
+      "size": 147804
+    },
+    {
+      "category": "PlayStation_5",
+      "file": "data/multi_PlayStation_5_PS4 Shinobi Art of Vengeance Digital Deluxe Edition v101 CUSA45905 US - CyB1K  S13L2.torrent",
+      "size": 95529
+    },
+    {
+      "category": "Movies_4K",
+      "file": "data/multi_Movies_4K_PAOLO FRESU  A FILETTA  DANIELE DI BONAVENTURA - Mistico Mediterraneo 2011 - MP3 \u00e0 320 kbs S1L0.torrent",
+      "size": 27730
+    },
+    {
+      "category": "TV_Shows_4K",
+      "file": "data/multi_TV_Shows_4K_Lesm\u00e9m\u00e9s - Tome 5 - Punks \u00e0 chien CBZ Fr S6L1.torrent",
+      "size": 14908
+    },
+    {
+      "category": "Music_FLAC",
+      "file": "data/multi_Music_FLAC_T\u00e9l\u00e9rama Sortir N3947 - 3 Au 16 Septembre 2025 PDF Fr S0L0.torrent",
+      "size": 15144
+    },
+    {
+      "category": "E_books",
+      "file": "data/multi_E_books_Metal Gear Solid Delta Snake Eater v112  1 DLC - LinuxRuleZ Linux Multi Pr\u00e9crack\u00e9 S1L1.torrent",
+      "size": 106529
+    },
+    {
+      "category": "Anime",
+      "file": "data/multi_Anime_inZOI 202509027159W 035  build 19834512 WIN X64 MULTI PORTABLE S1L1.torrent",
+      "size": 1417152
+    }
+  ],
+  "total_size": 1824796,
+  "tested_at": "2025-09-03 12:12:02",
+  "method": "undetected_chromedriver",
+  "status": "multi_category_working"
+}

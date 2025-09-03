@@ -29,8 +29,9 @@ def get_real_cookies():
     
     print(f"\n🔐 Authenticating user: {username}")
     
-    # Try Selenium authentication first
+    # Try Selenium authentication first (non-headless for manual Cloudflare interaction)
     print("\n🌐 Attempting Selenium authentication...")
+    print("⚠️  IMPORTANT: If you see a 'Verify you are human' challenge, please complete it manually in the browser window that opens.")
     success, cookies = auth.authenticate_with_selenium(username, password, headless=False)
     
     if not success:

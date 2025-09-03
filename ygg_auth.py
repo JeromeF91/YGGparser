@@ -97,7 +97,7 @@ class YGGRealAuth:
             'Upgrade-Insecure-Requests': '1',
         })
     
-    def authenticate_with_selenium(self, username: str, password: str, headless: bool = True) -> Tuple[bool, Dict[str, str]]:
+    def authenticate_with_selenium(self, username: str, password: str, headless: bool = True, retry_non_headless: bool = True) -> Tuple[bool, Dict[str, str]]:
         """
         Authenticate using Selenium and extract real cookies.
         
@@ -116,27 +116,40 @@ class YGGRealAuth:
         try:
             self.logger.info("🚀 Starting Selenium authentication...")
             
-            # Setup Chrome options with better Cloudflare bypass
+            # Setup Chrome options with enhanced stealth and Cloudflare bypass
             chrome_options = Options()
             if headless:
                 chrome_options.add_argument('--headless')
+            
+            # Basic options
             chrome_options.add_argument('--no-sandbox')
             chrome_options.add_argument('--disable-dev-shm-usage')
             chrome_options.add_argument('--disable-gpu')
             chrome_options.add_argument('--disable-extensions')
             chrome_options.add_argument('--disable-plugins')
-            chrome_options.add_argument('--disable-blink-features=AutomationControlled')
             chrome_options.add_argument('--disable-web-security')
             chrome_options.add_argument('--allow-running-insecure-content')
             chrome_options.add_argument('--disable-features=VizDisplayCompositor')
-            chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
-            chrome_options.add_experimental_option('useAutomationExtension', False)
-            chrome_options.add_argument('--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36')
             
-            # Add stealth options
+            # Enhanced stealth options
             chrome_options.add_argument('--disable-blink-features=AutomationControlled')
-            chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
+            chrome_options.add_argument('--disable-features=VizDisplayCompositor,TranslateUI')
+            chrome_options.add_argument('--disable-ipc-flooding-protection')
+            chrome_options.add_argument('--disable-renderer-backgrounding')
+            chrome_options.add_argument('--disable-backgrounding-occluded-windows')
+            chrome_options.add_argument('--disable-client-side-phishing-detection')
+            chrome_options.add_argument('--disable-sync')
+            chrome_options.add_argument('--disable-default-apps')
+            chrome_options.add_argument('--disable-hang-monitor')
+            chrome_options.add_argument('--disable-prompt-on-repost')
+            chrome_options.add_argument('--disable-domain-reliability')
+            chrome_options.add_argument('--disable-component-extensions-with-background-pages')
+            
+            # User agent and experimental options
+            chrome_options.add_argument('--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36')
+            chrome_options.add_experimental_option("excludeSwitches", ["enable-automation", "enable-logging"])
             chrome_options.add_experimental_option('useAutomationExtension', False)
+            chrome_options.add_experimental_option("detach", True)
             
             # Create driver
             self.driver = webdriver.Chrome(options=chrome_options)
@@ -144,30 +157,70 @@ class YGGRealAuth:
             
             # Navigate to login page
             self.logger.info("📄 Navigating to login page...")
-            login_url = f"{self.base_url}/user/login"
+            login_url = f"{self.base_url}/auth/login"
             self.driver.get(login_url)
             
-            # Wait for Cloudflare challenge with better handling
-            wait = WebDriverWait(self.driver, 30)
-            max_attempts = 3
+            # Wait for Cloudflare challenge with improved handling
+            self.logger.info("⏳ Waiting for page to load...")
+            time.sleep(5)  # Initial wait for page load
+            
+            # Check for Cloudflare challenge
+            cloudflare_indicators = [
+                "Just a moment",
+                "Checking your browser",
+                "Please wait",
+                "DDoS protection",
+                "cloudflare",
+                "cf-browser-verification"
+            ]
+            
+            max_attempts = 5
             attempt = 0
             
             while attempt < max_attempts:
-                if "Just a moment" in self.driver.title or "Checking your browser" in self.driver.page_source:
+                page_source = self.driver.page_source.lower()
+                title = self.driver.title or ""
+                title = title.lower()
+                
+                # Check if we're still on Cloudflare challenge
+                is_cloudflare = any(indicator in page_source or indicator in title for indicator in cloudflare_indicators)
+                
+                if is_cloudflare:
                     self.logger.info(f"⏳ Cloudflare challenge detected (attempt {attempt + 1}/{max_attempts})...")
+                    self.logger.info(f"📄 Current title: {self.driver.title}")
                     
+                    if not headless:
+                        self.logger.info("👤 Manual interaction required - please complete the 'Verify you are human' challenge in the browser window")
+                        self.logger.info("⏳ Waiting for you to complete the challenge...")
+                        # Wait longer for manual interaction
+                        time.sleep(30)
+                    else:
+                        # Wait longer for challenge to complete automatically
+                        time.sleep(15)
+                    
+                    # Try to detect if challenge completed
                     try:
-                        # Wait for challenge to complete
-                        wait.until(lambda d: "Just a moment" not in d.title and "Checking your browser" not in d.page_source)
+                        new_page_source = self.driver.page_source.lower()
+                        new_title = self.driver.title or ""
+                        new_title = new_title.lower()
+                        still_cloudflare = any(indicator in new_page_source or indicator in new_title for indicator in cloudflare_indicators)
+                    except Exception as e:
+                        self.logger.warning(f"⚠️ Error checking challenge status: {e}")
+                        still_cloudflare = True  # Assume still in challenge if we can't check
+                    
+                    if not still_cloudflare:
                         self.logger.info("✅ Cloudflare challenge completed!")
                         break
-                    except TimeoutException:
+                    else:
                         attempt += 1
                         if attempt < max_attempts:
                             self.logger.info(f"⏳ Challenge still active, waiting longer... (attempt {attempt + 1})")
                             time.sleep(10)
                         else:
-                            self.logger.warning("⚠️ Cloudflare challenge timeout, continuing anyway...")
+                            self.logger.warning("⚠️ Cloudflare challenge timeout, trying to continue...")
+                            # Try to refresh the page
+                            self.driver.refresh()
+                            time.sleep(10)
                             break
                 else:
                     self.logger.info("✅ No Cloudflare challenge detected")
@@ -181,12 +234,17 @@ class YGGRealAuth:
             # Try different selectors for username field
             username_selectors = [
                 "input[name='id']",
-                "input[name='username']",
+                "input[name='username']", 
                 "input[name='user']",
+                "input[name='login']",
                 "input[type='text']",
+                "input[type='email']",
                 "#id",
                 "#username",
-                "#user"
+                "#user",
+                "#login",
+                ".username",
+                ".login-field"
             ]
             
             username_field = None
@@ -199,16 +257,31 @@ class YGGRealAuth:
                     continue
             
             if not username_field:
+                # Try to find any text input that might be username
+                try:
+                    text_inputs = self.driver.find_elements(By.CSS_SELECTOR, "input[type='text']")
+                    if text_inputs:
+                        username_field = text_inputs[0]  # Take the first text input
+                        self.logger.info("✅ Found username field (first text input)")
+                except:
+                    pass
+            
+            if not username_field:
                 self.logger.error("❌ Could not find username field")
+                self.logger.error(f"📄 Page source preview: {self.driver.page_source[:500]}...")
                 return False, {}
             
             # Try different selectors for password field
             password_selectors = [
                 "input[name='pass']",
                 "input[name='password']",
+                "input[name='pwd']",
                 "input[type='password']",
                 "#pass",
-                "#password"
+                "#password",
+                "#pwd",
+                ".password",
+                ".pass-field"
             ]
             
             password_field = None
@@ -219,6 +292,16 @@ class YGGRealAuth:
                     break
                 except NoSuchElementException:
                     continue
+            
+            if not password_field:
+                # Try to find any password input
+                try:
+                    password_inputs = self.driver.find_elements(By.CSS_SELECTOR, "input[type='password']")
+                    if password_inputs:
+                        password_field = password_inputs[0]  # Take the first password input
+                        self.logger.info("✅ Found password field (first password input)")
+                except:
+                    pass
             
             if not password_field:
                 self.logger.error("❌ Could not find password field")
@@ -237,8 +320,14 @@ class YGGRealAuth:
                 "button[type='submit']",
                 "input[value='Connexion']",
                 "input[value='Login']",
+                "input[value='Se connecter']",
                 "button:contains('Connexion')",
-                "button:contains('Login')"
+                "button:contains('Login')",
+                "button:contains('Se connecter')",
+                ".submit",
+                ".login-button",
+                "#submit",
+                "#login-button"
             ]
             
             submit_button = None
@@ -251,7 +340,26 @@ class YGGRealAuth:
                     continue
             
             if not submit_button:
+                # Try to find any button that might be submit
+                try:
+                    buttons = self.driver.find_elements(By.CSS_SELECTOR, "button, input[type='submit']")
+                    for button in buttons:
+                        button_text = button.get_attribute('value') or button.text or ''
+                        if any(word in button_text.lower() for word in ['login', 'connexion', 'connecter', 'submit']):
+                            submit_button = button
+                            self.logger.info(f"✅ Found submit button by text: {button_text}")
+                            break
+                except:
+                    pass
+            
+            if not submit_button:
                 self.logger.error("❌ Could not find submit button")
+                try:
+                    buttons = self.driver.find_elements(By.CSS_SELECTOR, 'button, input[type="submit"]')
+                    button_texts = [btn.get_attribute('value') or btn.text for btn in buttons]
+                    self.logger.error(f"📄 Available buttons: {button_texts}")
+                except:
+                    self.logger.error("📄 Could not get button information")
                 return False, {}
             
             # Click submit
@@ -298,6 +406,14 @@ class YGGRealAuth:
                 
         except Exception as e:
             self.logger.error(f"❌ Authentication error: {e}")
+            
+            # If headless failed and we can retry, try non-headless mode
+            if headless and retry_non_headless:
+                self.logger.info("🔄 Retrying with non-headless mode...")
+                if self.driver:
+                    self.driver.quit()
+                return self.authenticate_with_selenium(username, password, headless=False, retry_non_headless=False)
+            
             return False, {}
         finally:
             if self.driver:
@@ -318,7 +434,7 @@ class YGGRealAuth:
             self.logger.info("🚀 Starting requests-based authentication...")
             
             # Get login page
-            login_url = f"{self.base_url}/user/login"
+            login_url = f"{self.base_url}/auth/login"
             response = self.session.get(login_url, timeout=30)
             
             if response.status_code != 200:

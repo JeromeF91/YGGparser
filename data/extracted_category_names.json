@@ -1,0 +1,1494 @@
+{
+  "extracted_at": "2025-09-03 12:22:49",
+  "total_categories": 50,
+  "categories": {
+    "2171": {
+      "id": "2171",
+      "name": "Linux",
+      "parent_id": "2144",
+      "parent_name": "Flux RSS sous-cat\u00e9gories",
+      "item_count": 100,
+      "all_categories": [
+        "Linux"
+      ],
+      "category_counts": {
+        "Linux": 10
+      },
+      "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2171&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+    },
+    "2172": {
+      "id": "2172",
+      "name": "MacOS",
+      "parent_id": "2144",
+      "parent_name": "Flux RSS sous-cat\u00e9gories",
+      "item_count": 100,
+      "all_categories": [
+        "MacOS"
+      ],
+      "category_counts": {
+        "MacOS": 10
+      },
+      "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2172&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+    },
+    "2173": {
+      "id": "2173",
+      "name": "Windows",
+      "parent_id": "2144",
+      "parent_name": "Flux RSS sous-cat\u00e9gories",
+      "item_count": 100,
+      "all_categories": [
+        "Windows"
+      ],
+      "category_counts": {
+        "Windows": 10
+      },
+      "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2173&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+    },
+    "2174": {
+      "id": "2174",
+      "name": "Smartphone",
+      "parent_id": "2144",
+      "parent_name": "Flux RSS sous-cat\u00e9gories",
+      "item_count": 100,
+      "all_categories": [
+        "Smartphone"
+      ],
+      "category_counts": {
+        "Smartphone": 10
+      },
+      "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2174&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+    },
+    "2175": {
+      "id": "2175",
+      "name": "Tablette",
+      "parent_id": "2144",
+      "parent_name": "Flux RSS sous-cat\u00e9gories",
+      "item_count": 10,
+      "all_categories": [
+        "Tablette"
+      ],
+      "category_counts": {
+        "Tablette": 10
+      },
+      "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2175&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+    },
+    "2176": {
+      "id": "2176",
+      "name": "Formation",
+      "parent_id": "2144",
+      "parent_name": "Flux RSS sous-cat\u00e9gories",
+      "item_count": 100,
+      "all_categories": [
+        "Formation"
+      ],
+      "category_counts": {
+        "Formation": 10
+      },
+      "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2176&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+    },
+    "2177": {
+      "id": "2177",
+      "name": "Autre",
+      "parent_id": "2144",
+      "parent_name": "Flux RSS sous-cat\u00e9gories",
+      "item_count": 100,
+      "all_categories": [
+        "Autre"
+      ],
+      "category_counts": {
+        "Autre": 10
+      },
+      "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2177&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+    },
+    "2147": {
+      "id": "2147",
+      "name": "Karaok\u00e9",
+      "parent_id": "2139",
+      "parent_name": "Flux RSS sous-cat\u00e9gories",
+      "item_count": 100,
+      "all_categories": [
+        "Karaok\u00e9"
+      ],
+      "category_counts": {
+        "Karaok\u00e9": 10
+      },
+      "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2147&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+    },
+    "2148": {
+      "id": "2148",
+      "name": "Musique",
+      "parent_id": "2139",
+      "parent_name": "Flux RSS sous-cat\u00e9gories",
+      "item_count": 100,
+      "all_categories": [
+        "Musique"
+      ],
+      "category_counts": {
+        "Musique": 10
+      },
+      "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2148&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+    },
+    "2149": {
+      "id": "2149",
+      "name": "Samples",
+      "parent_id": "2139",
+      "parent_name": "Flux RSS sous-cat\u00e9gories",
+      "item_count": 100,
+      "all_categories": [
+        "Samples"
+      ],
+      "category_counts": {
+        "Samples": 10
+      },
+      "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2149&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+    },
+    "2150": {
+      "id": "2150",
+      "name": "Podcast Radio",
+      "parent_id": "2139",
+      "parent_name": "Flux RSS sous-cat\u00e9gories",
+      "item_count": 100,
+      "all_categories": [
+        "Podcast Radio"
+      ],
+      "category_counts": {
+        "Podcast Radio": 10
+      },
+      "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2150&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+    },
+    "2151": {
+      "id": "2151",
+      "name": "Audio",
+      "parent_id": "2140",
+      "parent_name": "Flux RSS sous-cat\u00e9gories",
+      "item_count": 100,
+      "all_categories": [
+        "Audio"
+      ],
+      "category_counts": {
+        "Audio": 10
+      },
+      "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2151&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+    },
+    "2152": {
+      "id": "2152",
+      "name": "Bds",
+      "parent_id": "2140",
+      "parent_name": "Flux RSS sous-cat\u00e9gories",
+      "item_count": 100,
+      "all_categories": [
+        "Bds"
+      ],
+      "category_counts": {
+        "Bds": 10
+      },
+      "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2152&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+    },
+    "2153": {
+      "id": "2153",
+      "name": "Comics",
+      "parent_id": "2140",
+      "parent_name": "Flux RSS sous-cat\u00e9gories",
+      "item_count": 100,
+      "all_categories": [
+        "Comics"
+      ],
+      "category_counts": {
+        "Comics": 10
+      },
+      "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2153&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+    },
+    "2154": {
+      "id": "2154",
+      "name": "Livres",
+      "parent_id": "2140",
+      "parent_name": "Flux RSS sous-cat\u00e9gories",
+      "item_count": 100,
+      "all_categories": [
+        "Livres"
+      ],
+      "category_counts": {
+        "Livres": 10
+      },
+      "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2154&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+    },
+    "2155": {
+      "id": "2155",
+      "name": "Mangas",
+      "parent_id": "2140",
+      "parent_name": "Flux RSS sous-cat\u00e9gories",
+      "item_count": 100,
+      "all_categories": [
+        "Mangas"
+      ],
+      "category_counts": {
+        "Mangas": 10
+      },
+      "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2155&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+    },
+    "2156": {
+      "id": "2156",
+      "name": "Presse",
+      "parent_id": "2140",
+      "parent_name": "Flux RSS sous-cat\u00e9gories",
+      "item_count": 100,
+      "all_categories": [
+        "Presse"
+      ],
+      "category_counts": {
+        "Presse": 10
+      },
+      "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2156&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+    },
+    "2157": {
+      "id": "2157",
+      "name": "Emulateurs",
+      "parent_id": "2141",
+      "parent_name": "Flux RSS sous-cat\u00e9gories",
+      "item_count": 100,
+      "all_categories": [
+        "Emulateurs"
+      ],
+      "category_counts": {
+        "Emulateurs": 10
+      },
+      "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2157&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+    },
+    "2158": {
+      "id": "2158",
+      "name": "Roms",
+      "parent_id": "2141",
+      "parent_name": "Flux RSS sous-cat\u00e9gories",
+      "item_count": 100,
+      "all_categories": [
+        "Roms"
+      ],
+      "category_counts": {
+        "Roms": 10
+      },
+      "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2158&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+    },
+    "2178": {
+      "id": "2178",
+      "name": "Animation",
+      "parent_id": "2145",
+      "parent_name": "Flux RSS sous-cat\u00e9gories",
+      "item_count": 100,
+      "all_categories": [
+        "Animation"
+      ],
+      "category_counts": {
+        "Animation": 10
+      },
+      "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2178&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+    },
+    "2179": {
+      "id": "2179",
+      "name": "Animation S\u00e9rie",
+      "parent_id": "2145",
+      "parent_name": "Flux RSS sous-cat\u00e9gories",
+      "item_count": 100,
+      "all_categories": [
+        "Animation S\u00e9rie"
+      ],
+      "category_counts": {
+        "Animation S\u00e9rie": 10
+      },
+      "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2179&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+    },
+    "2180": {
+      "id": "2180",
+      "name": "Concert",
+      "parent_id": "2145",
+      "parent_name": "Flux RSS sous-cat\u00e9gories",
+      "item_count": 100,
+      "all_categories": [
+        "Concert"
+      ],
+      "category_counts": {
+        "Concert": 10
+      },
+      "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2180&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+    },
+    "2181": {
+      "id": "2181",
+      "name": "Documentaire",
+      "parent_id": "2145",
+      "parent_name": "Flux RSS sous-cat\u00e9gories",
+      "item_count": 100,
+      "all_categories": [
+        "Documentaire"
+      ],
+      "category_counts": {
+        "Documentaire": 10
+      },
+      "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2181&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+    },
+    "2182": {
+      "id": "2182",
+      "name": "Emission TV",
+      "parent_id": "2145",
+      "parent_name": "Flux RSS sous-cat\u00e9gories",
+      "item_count": 100,
+      "all_categories": [
+        "Emission TV"
+      ],
+      "category_counts": {
+        "Emission TV": 10
+      },
+      "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2182&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+    },
+    "2183": {
+      "id": "2183",
+      "name": "Film",
+      "parent_id": "2145",
+      "parent_name": "Flux RSS sous-cat\u00e9gories",
+      "item_count": 100,
+      "all_categories": [
+        "Film"
+      ],
+      "category_counts": {
+        "Film": 10
+      },
+      "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2183&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+    },
+    "2184": {
+      "id": "2184",
+      "name": "S\u00e9rie TV",
+      "parent_id": "2145",
+      "parent_name": "Flux RSS sous-cat\u00e9gories",
+      "item_count": 100,
+      "all_categories": [
+        "S\u00e9rie TV"
+      ],
+      "category_counts": {
+        "S\u00e9rie TV": 10
+      },
+      "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2184&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+    },
+    "2185": {
+      "id": "2185",
+      "name": "Spectacle",
+      "parent_id": "2145",
+      "parent_name": "Flux RSS sous-cat\u00e9gories",
+      "item_count": 100,
+      "all_categories": [
+        "Spectacle"
+      ],
+      "category_counts": {
+        "Spectacle": 10
+      },
+      "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2185&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+    },
+    "2186": {
+      "id": "2186",
+      "name": "Sport",
+      "parent_id": "2145",
+      "parent_name": "Flux RSS sous-cat\u00e9gories",
+      "item_count": 100,
+      "all_categories": [
+        "Sport"
+      ],
+      "category_counts": {
+        "Sport": 10
+      },
+      "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2186&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+    },
+    "2187": {
+      "id": "2187",
+      "name": "Vid\u00e9o-clips",
+      "parent_id": "2145",
+      "parent_name": "Flux RSS sous-cat\u00e9gories",
+      "item_count": 100,
+      "all_categories": [
+        "Vid\u00e9o-clips"
+      ],
+      "category_counts": {
+        "Vid\u00e9o-clips": 10
+      },
+      "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2187&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+    },
+    "2168": {
+      "id": "2168",
+      "name": "Applications",
+      "parent_id": "2143",
+      "parent_name": "Flux RSS sous-cat\u00e9gories",
+      "item_count": 8,
+      "all_categories": [
+        "Applications"
+      ],
+      "category_counts": {
+        "Applications": 8
+      },
+      "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2168&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+    },
+    "2169": {
+      "id": "2169",
+      "name": "Cartes",
+      "parent_id": "2143",
+      "parent_name": "Flux RSS sous-cat\u00e9gories",
+      "item_count": 100,
+      "all_categories": [
+        "Cartes"
+      ],
+      "category_counts": {
+        "Cartes": 10
+      },
+      "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2169&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+    },
+    "2170": {
+      "id": "2170",
+      "name": "Divers",
+      "parent_id": "2143",
+      "parent_name": "Flux RSS sous-cat\u00e9gories",
+      "item_count": 77,
+      "all_categories": [
+        "Divers"
+      ],
+      "category_counts": {
+        "Divers": 10
+      },
+      "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2170&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+    },
+    "2201": {
+      "id": "2201",
+      "name": "Objets",
+      "parent_id": "2200",
+      "parent_name": "Flux RSS sous-cat\u00e9gories",
+      "item_count": 100,
+      "all_categories": [
+        "Objets"
+      ],
+      "category_counts": {
+        "Objets": 10
+      },
+      "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2201&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+    },
+    "2202": {
+      "id": "2202",
+      "name": "Personnages",
+      "parent_id": "2200",
+      "parent_name": "Flux RSS sous-cat\u00e9gories",
+      "item_count": 100,
+      "all_categories": [
+        "Personnages"
+      ],
+      "category_counts": {
+        "Personnages": 10
+      },
+      "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2202&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+    },
+    "2159": {
+      "id": "2159",
+      "name": "Linux",
+      "parent_id": "2142",
+      "parent_name": "Flux RSS sous-cat\u00e9gories",
+      "item_count": 100,
+      "all_categories": [
+        "Linux"
+      ],
+      "category_counts": {
+        "Linux": 10
+      },
+      "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2159&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+    },
+    "2160": {
+      "id": "2160",
+      "name": "MacOS",
+      "parent_id": "2142",
+      "parent_name": "Flux RSS sous-cat\u00e9gories",
+      "item_count": 100,
+      "all_categories": [
+        "MacOS"
+      ],
+      "category_counts": {
+        "MacOS": 10
+      },
+      "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2160&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+    },
+    "2161": {
+      "id": "2161",
+      "name": "Windows",
+      "parent_id": "2142",
+      "parent_name": "Flux RSS sous-cat\u00e9gories",
+      "item_count": 100,
+      "all_categories": [
+        "Windows"
+      ],
+      "category_counts": {
+        "Windows": 10
+      },
+      "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2161&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+    },
+    "2162": {
+      "id": "2162",
+      "name": "Microsoft",
+      "parent_id": "2142",
+      "parent_name": "Flux RSS sous-cat\u00e9gories",
+      "item_count": 100,
+      "all_categories": [
+        "Microsoft"
+      ],
+      "category_counts": {
+        "Microsoft": 10
+      },
+      "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2162&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+    },
+    "2163": {
+      "id": "2163",
+      "name": "Nintendo",
+      "parent_id": "2142",
+      "parent_name": "Flux RSS sous-cat\u00e9gories",
+      "item_count": 100,
+      "all_categories": [
+        "Nintendo"
+      ],
+      "category_counts": {
+        "Nintendo": 10
+      },
+      "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2163&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+    },
+    "2164": {
+      "id": "2164",
+      "name": "Sony",
+      "parent_id": "2142",
+      "parent_name": "Flux RSS sous-cat\u00e9gories",
+      "item_count": 100,
+      "all_categories": [
+        "Sony"
+      ],
+      "category_counts": {
+        "Sony": 10
+      },
+      "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2164&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+    },
+    "2165": {
+      "id": "2165",
+      "name": "Smartphone",
+      "parent_id": "2142",
+      "parent_name": "Flux RSS sous-cat\u00e9gories",
+      "item_count": 100,
+      "all_categories": [
+        "Smartphone"
+      ],
+      "category_counts": {
+        "Smartphone": 10
+      },
+      "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2165&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+    },
+    "2166": {
+      "id": "2166",
+      "name": "Tablette",
+      "parent_id": "2142",
+      "parent_name": "Flux RSS sous-cat\u00e9gories",
+      "item_count": 2,
+      "all_categories": [
+        "Tablette"
+      ],
+      "category_counts": {
+        "Tablette": 2
+      },
+      "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2166&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+    },
+    "2167": {
+      "id": "2167",
+      "name": "Autre",
+      "parent_id": "2142",
+      "parent_name": "Flux RSS sous-cat\u00e9gories",
+      "item_count": 100,
+      "all_categories": [
+        "Autre"
+      ],
+      "category_counts": {
+        "Autre": 10
+      },
+      "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2167&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+    },
+    "2301": {
+      "id": "2301",
+      "name": "Wordpress",
+      "parent_id": "2300",
+      "parent_name": "Flux RSS sous-cat\u00e9gories",
+      "item_count": 100,
+      "all_categories": [
+        "Wordpress"
+      ],
+      "category_counts": {
+        "Wordpress": 10
+      },
+      "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2301&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+    },
+    "2304": {
+      "id": "2304",
+      "name": "Divers",
+      "parent_id": "2300",
+      "parent_name": "Flux RSS sous-cat\u00e9gories",
+      "item_count": 5,
+      "all_categories": [
+        "Divers"
+      ],
+      "category_counts": {
+        "Divers": 5
+      },
+      "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2304&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+    },
+    "2189": {
+      "id": "2189",
+      "name": "Films",
+      "parent_id": "2188",
+      "parent_name": "Flux RSS sous-cat\u00e9gories",
+      "item_count": 100,
+      "all_categories": [
+        "Films"
+      ],
+      "category_counts": {
+        "Films": 10
+      },
+      "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2189&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+    },
+    "2190": {
+      "id": "2190",
+      "name": "Hentai",
+      "parent_id": "2188",
+      "parent_name": "Flux RSS sous-cat\u00e9gories",
+      "item_count": 100,
+      "all_categories": [
+        "Hentai"
+      ],
+      "category_counts": {
+        "Hentai": 10
+      },
+      "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2190&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+    },
+    "2191": {
+      "id": "2191",
+      "name": "Images",
+      "parent_id": "2188",
+      "parent_name": "Flux RSS sous-cat\u00e9gories",
+      "item_count": 100,
+      "all_categories": [
+        "Images"
+      ],
+      "category_counts": {
+        "Images": 10
+      },
+      "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2191&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+    },
+    "2401": {
+      "id": "2401",
+      "name": "Ebooks",
+      "parent_id": "2188",
+      "parent_name": "Flux RSS sous-cat\u00e9gories",
+      "item_count": 100,
+      "all_categories": [
+        "Ebooks"
+      ],
+      "category_counts": {
+        "Ebooks": 10
+      },
+      "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2401&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+    },
+    "2402": {
+      "id": "2402",
+      "name": "Jeux",
+      "parent_id": "2188",
+      "parent_name": "Flux RSS sous-cat\u00e9gories",
+      "item_count": 100,
+      "all_categories": [
+        "Jeux"
+      ],
+      "category_counts": {
+        "Jeux": 10
+      },
+      "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2402&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+    }
+  },
+  "category_groups": {
+    "Linux": [
+      {
+        "id": "2171",
+        "name": "Linux",
+        "parent_id": "2144",
+        "parent_name": "Flux RSS sous-cat\u00e9gories",
+        "item_count": 100,
+        "all_categories": [
+          "Linux"
+        ],
+        "category_counts": {
+          "Linux": 10
+        },
+        "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2171&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+      },
+      {
+        "id": "2159",
+        "name": "Linux",
+        "parent_id": "2142",
+        "parent_name": "Flux RSS sous-cat\u00e9gories",
+        "item_count": 100,
+        "all_categories": [
+          "Linux"
+        ],
+        "category_counts": {
+          "Linux": 10
+        },
+        "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2159&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+      }
+    ],
+    "MacOS": [
+      {
+        "id": "2172",
+        "name": "MacOS",
+        "parent_id": "2144",
+        "parent_name": "Flux RSS sous-cat\u00e9gories",
+        "item_count": 100,
+        "all_categories": [
+          "MacOS"
+        ],
+        "category_counts": {
+          "MacOS": 10
+        },
+        "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2172&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+      },
+      {
+        "id": "2160",
+        "name": "MacOS",
+        "parent_id": "2142",
+        "parent_name": "Flux RSS sous-cat\u00e9gories",
+        "item_count": 100,
+        "all_categories": [
+          "MacOS"
+        ],
+        "category_counts": {
+          "MacOS": 10
+        },
+        "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2160&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+      }
+    ],
+    "Windows": [
+      {
+        "id": "2173",
+        "name": "Windows",
+        "parent_id": "2144",
+        "parent_name": "Flux RSS sous-cat\u00e9gories",
+        "item_count": 100,
+        "all_categories": [
+          "Windows"
+        ],
+        "category_counts": {
+          "Windows": 10
+        },
+        "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2173&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+      },
+      {
+        "id": "2161",
+        "name": "Windows",
+        "parent_id": "2142",
+        "parent_name": "Flux RSS sous-cat\u00e9gories",
+        "item_count": 100,
+        "all_categories": [
+          "Windows"
+        ],
+        "category_counts": {
+          "Windows": 10
+        },
+        "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2161&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+      }
+    ],
+    "Smartphone": [
+      {
+        "id": "2174",
+        "name": "Smartphone",
+        "parent_id": "2144",
+        "parent_name": "Flux RSS sous-cat\u00e9gories",
+        "item_count": 100,
+        "all_categories": [
+          "Smartphone"
+        ],
+        "category_counts": {
+          "Smartphone": 10
+        },
+        "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2174&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+      },
+      {
+        "id": "2165",
+        "name": "Smartphone",
+        "parent_id": "2142",
+        "parent_name": "Flux RSS sous-cat\u00e9gories",
+        "item_count": 100,
+        "all_categories": [
+          "Smartphone"
+        ],
+        "category_counts": {
+          "Smartphone": 10
+        },
+        "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2165&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+      }
+    ],
+    "Tablette": [
+      {
+        "id": "2175",
+        "name": "Tablette",
+        "parent_id": "2144",
+        "parent_name": "Flux RSS sous-cat\u00e9gories",
+        "item_count": 10,
+        "all_categories": [
+          "Tablette"
+        ],
+        "category_counts": {
+          "Tablette": 10
+        },
+        "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2175&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+      },
+      {
+        "id": "2166",
+        "name": "Tablette",
+        "parent_id": "2142",
+        "parent_name": "Flux RSS sous-cat\u00e9gories",
+        "item_count": 2,
+        "all_categories": [
+          "Tablette"
+        ],
+        "category_counts": {
+          "Tablette": 2
+        },
+        "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2166&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+      }
+    ],
+    "Formation": [
+      {
+        "id": "2176",
+        "name": "Formation",
+        "parent_id": "2144",
+        "parent_name": "Flux RSS sous-cat\u00e9gories",
+        "item_count": 100,
+        "all_categories": [
+          "Formation"
+        ],
+        "category_counts": {
+          "Formation": 10
+        },
+        "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2176&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+      }
+    ],
+    "Autre": [
+      {
+        "id": "2177",
+        "name": "Autre",
+        "parent_id": "2144",
+        "parent_name": "Flux RSS sous-cat\u00e9gories",
+        "item_count": 100,
+        "all_categories": [
+          "Autre"
+        ],
+        "category_counts": {
+          "Autre": 10
+        },
+        "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2177&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+      },
+      {
+        "id": "2167",
+        "name": "Autre",
+        "parent_id": "2142",
+        "parent_name": "Flux RSS sous-cat\u00e9gories",
+        "item_count": 100,
+        "all_categories": [
+          "Autre"
+        ],
+        "category_counts": {
+          "Autre": 10
+        },
+        "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2167&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+      }
+    ],
+    "Karaok\u00e9": [
+      {
+        "id": "2147",
+        "name": "Karaok\u00e9",
+        "parent_id": "2139",
+        "parent_name": "Flux RSS sous-cat\u00e9gories",
+        "item_count": 100,
+        "all_categories": [
+          "Karaok\u00e9"
+        ],
+        "category_counts": {
+          "Karaok\u00e9": 10
+        },
+        "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2147&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+      }
+    ],
+    "Musique": [
+      {
+        "id": "2148",
+        "name": "Musique",
+        "parent_id": "2139",
+        "parent_name": "Flux RSS sous-cat\u00e9gories",
+        "item_count": 100,
+        "all_categories": [
+          "Musique"
+        ],
+        "category_counts": {
+          "Musique": 10
+        },
+        "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2148&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+      }
+    ],
+    "Samples": [
+      {
+        "id": "2149",
+        "name": "Samples",
+        "parent_id": "2139",
+        "parent_name": "Flux RSS sous-cat\u00e9gories",
+        "item_count": 100,
+        "all_categories": [
+          "Samples"
+        ],
+        "category_counts": {
+          "Samples": 10
+        },
+        "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2149&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+      }
+    ],
+    "Podcast Radio": [
+      {
+        "id": "2150",
+        "name": "Podcast Radio",
+        "parent_id": "2139",
+        "parent_name": "Flux RSS sous-cat\u00e9gories",
+        "item_count": 100,
+        "all_categories": [
+          "Podcast Radio"
+        ],
+        "category_counts": {
+          "Podcast Radio": 10
+        },
+        "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2150&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+      }
+    ],
+    "Audio": [
+      {
+        "id": "2151",
+        "name": "Audio",
+        "parent_id": "2140",
+        "parent_name": "Flux RSS sous-cat\u00e9gories",
+        "item_count": 100,
+        "all_categories": [
+          "Audio"
+        ],
+        "category_counts": {
+          "Audio": 10
+        },
+        "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2151&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+      }
+    ],
+    "Bds": [
+      {
+        "id": "2152",
+        "name": "Bds",
+        "parent_id": "2140",
+        "parent_name": "Flux RSS sous-cat\u00e9gories",
+        "item_count": 100,
+        "all_categories": [
+          "Bds"
+        ],
+        "category_counts": {
+          "Bds": 10
+        },
+        "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2152&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+      }
+    ],
+    "Comics": [
+      {
+        "id": "2153",
+        "name": "Comics",
+        "parent_id": "2140",
+        "parent_name": "Flux RSS sous-cat\u00e9gories",
+        "item_count": 100,
+        "all_categories": [
+          "Comics"
+        ],
+        "category_counts": {
+          "Comics": 10
+        },
+        "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2153&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+      }
+    ],
+    "Livres": [
+      {
+        "id": "2154",
+        "name": "Livres",
+        "parent_id": "2140",
+        "parent_name": "Flux RSS sous-cat\u00e9gories",
+        "item_count": 100,
+        "all_categories": [
+          "Livres"
+        ],
+        "category_counts": {
+          "Livres": 10
+        },
+        "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2154&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+      }
+    ],
+    "Mangas": [
+      {
+        "id": "2155",
+        "name": "Mangas",
+        "parent_id": "2140",
+        "parent_name": "Flux RSS sous-cat\u00e9gories",
+        "item_count": 100,
+        "all_categories": [
+          "Mangas"
+        ],
+        "category_counts": {
+          "Mangas": 10
+        },
+        "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2155&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+      }
+    ],
+    "Presse": [
+      {
+        "id": "2156",
+        "name": "Presse",
+        "parent_id": "2140",
+        "parent_name": "Flux RSS sous-cat\u00e9gories",
+        "item_count": 100,
+        "all_categories": [
+          "Presse"
+        ],
+        "category_counts": {
+          "Presse": 10
+        },
+        "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2156&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+      }
+    ],
+    "Emulateurs": [
+      {
+        "id": "2157",
+        "name": "Emulateurs",
+        "parent_id": "2141",
+        "parent_name": "Flux RSS sous-cat\u00e9gories",
+        "item_count": 100,
+        "all_categories": [
+          "Emulateurs"
+        ],
+        "category_counts": {
+          "Emulateurs": 10
+        },
+        "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2157&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+      }
+    ],
+    "Roms": [
+      {
+        "id": "2158",
+        "name": "Roms",
+        "parent_id": "2141",
+        "parent_name": "Flux RSS sous-cat\u00e9gories",
+        "item_count": 100,
+        "all_categories": [
+          "Roms"
+        ],
+        "category_counts": {
+          "Roms": 10
+        },
+        "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2158&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+      }
+    ],
+    "Animation": [
+      {
+        "id": "2178",
+        "name": "Animation",
+        "parent_id": "2145",
+        "parent_name": "Flux RSS sous-cat\u00e9gories",
+        "item_count": 100,
+        "all_categories": [
+          "Animation"
+        ],
+        "category_counts": {
+          "Animation": 10
+        },
+        "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2178&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+      }
+    ],
+    "Animation S\u00e9rie": [
+      {
+        "id": "2179",
+        "name": "Animation S\u00e9rie",
+        "parent_id": "2145",
+        "parent_name": "Flux RSS sous-cat\u00e9gories",
+        "item_count": 100,
+        "all_categories": [
+          "Animation S\u00e9rie"
+        ],
+        "category_counts": {
+          "Animation S\u00e9rie": 10
+        },
+        "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2179&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+      }
+    ],
+    "Concert": [
+      {
+        "id": "2180",
+        "name": "Concert",
+        "parent_id": "2145",
+        "parent_name": "Flux RSS sous-cat\u00e9gories",
+        "item_count": 100,
+        "all_categories": [
+          "Concert"
+        ],
+        "category_counts": {
+          "Concert": 10
+        },
+        "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2180&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+      }
+    ],
+    "Documentaire": [
+      {
+        "id": "2181",
+        "name": "Documentaire",
+        "parent_id": "2145",
+        "parent_name": "Flux RSS sous-cat\u00e9gories",
+        "item_count": 100,
+        "all_categories": [
+          "Documentaire"
+        ],
+        "category_counts": {
+          "Documentaire": 10
+        },
+        "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2181&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+      }
+    ],
+    "Emission TV": [
+      {
+        "id": "2182",
+        "name": "Emission TV",
+        "parent_id": "2145",
+        "parent_name": "Flux RSS sous-cat\u00e9gories",
+        "item_count": 100,
+        "all_categories": [
+          "Emission TV"
+        ],
+        "category_counts": {
+          "Emission TV": 10
+        },
+        "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2182&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+      }
+    ],
+    "Film": [
+      {
+        "id": "2183",
+        "name": "Film",
+        "parent_id": "2145",
+        "parent_name": "Flux RSS sous-cat\u00e9gories",
+        "item_count": 100,
+        "all_categories": [
+          "Film"
+        ],
+        "category_counts": {
+          "Film": 10
+        },
+        "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2183&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+      }
+    ],
+    "S\u00e9rie TV": [
+      {
+        "id": "2184",
+        "name": "S\u00e9rie TV",
+        "parent_id": "2145",
+        "parent_name": "Flux RSS sous-cat\u00e9gories",
+        "item_count": 100,
+        "all_categories": [
+          "S\u00e9rie TV"
+        ],
+        "category_counts": {
+          "S\u00e9rie TV": 10
+        },
+        "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2184&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+      }
+    ],
+    "Spectacle": [
+      {
+        "id": "2185",
+        "name": "Spectacle",
+        "parent_id": "2145",
+        "parent_name": "Flux RSS sous-cat\u00e9gories",
+        "item_count": 100,
+        "all_categories": [
+          "Spectacle"
+        ],
+        "category_counts": {
+          "Spectacle": 10
+        },
+        "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2185&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+      }
+    ],
+    "Sport": [
+      {
+        "id": "2186",
+        "name": "Sport",
+        "parent_id": "2145",
+        "parent_name": "Flux RSS sous-cat\u00e9gories",
+        "item_count": 100,
+        "all_categories": [
+          "Sport"
+        ],
+        "category_counts": {
+          "Sport": 10
+        },
+        "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2186&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+      }
+    ],
+    "Vid\u00e9o-clips": [
+      {
+        "id": "2187",
+        "name": "Vid\u00e9o-clips",
+        "parent_id": "2145",
+        "parent_name": "Flux RSS sous-cat\u00e9gories",
+        "item_count": 100,
+        "all_categories": [
+          "Vid\u00e9o-clips"
+        ],
+        "category_counts": {
+          "Vid\u00e9o-clips": 10
+        },
+        "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2187&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+      }
+    ],
+    "Applications": [
+      {
+        "id": "2168",
+        "name": "Applications",
+        "parent_id": "2143",
+        "parent_name": "Flux RSS sous-cat\u00e9gories",
+        "item_count": 8,
+        "all_categories": [
+          "Applications"
+        ],
+        "category_counts": {
+          "Applications": 8
+        },
+        "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2168&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+      }
+    ],
+    "Cartes": [
+      {
+        "id": "2169",
+        "name": "Cartes",
+        "parent_id": "2143",
+        "parent_name": "Flux RSS sous-cat\u00e9gories",
+        "item_count": 100,
+        "all_categories": [
+          "Cartes"
+        ],
+        "category_counts": {
+          "Cartes": 10
+        },
+        "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2169&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+      }
+    ],
+    "Divers": [
+      {
+        "id": "2170",
+        "name": "Divers",
+        "parent_id": "2143",
+        "parent_name": "Flux RSS sous-cat\u00e9gories",
+        "item_count": 77,
+        "all_categories": [
+          "Divers"
+        ],
+        "category_counts": {
+          "Divers": 10
+        },
+        "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2170&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+      },
+      {
+        "id": "2304",
+        "name": "Divers",
+        "parent_id": "2300",
+        "parent_name": "Flux RSS sous-cat\u00e9gories",
+        "item_count": 5,
+        "all_categories": [
+          "Divers"
+        ],
+        "category_counts": {
+          "Divers": 5
+        },
+        "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2304&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+      }
+    ],
+    "Objets": [
+      {
+        "id": "2201",
+        "name": "Objets",
+        "parent_id": "2200",
+        "parent_name": "Flux RSS sous-cat\u00e9gories",
+        "item_count": 100,
+        "all_categories": [
+          "Objets"
+        ],
+        "category_counts": {
+          "Objets": 10
+        },
+        "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2201&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+      }
+    ],
+    "Personnages": [
+      {
+        "id": "2202",
+        "name": "Personnages",
+        "parent_id": "2200",
+        "parent_name": "Flux RSS sous-cat\u00e9gories",
+        "item_count": 100,
+        "all_categories": [
+          "Personnages"
+        ],
+        "category_counts": {
+          "Personnages": 10
+        },
+        "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2202&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+      }
+    ],
+    "Microsoft": [
+      {
+        "id": "2162",
+        "name": "Microsoft",
+        "parent_id": "2142",
+        "parent_name": "Flux RSS sous-cat\u00e9gories",
+        "item_count": 100,
+        "all_categories": [
+          "Microsoft"
+        ],
+        "category_counts": {
+          "Microsoft": 10
+        },
+        "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2162&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+      }
+    ],
+    "Nintendo": [
+      {
+        "id": "2163",
+        "name": "Nintendo",
+        "parent_id": "2142",
+        "parent_name": "Flux RSS sous-cat\u00e9gories",
+        "item_count": 100,
+        "all_categories": [
+          "Nintendo"
+        ],
+        "category_counts": {
+          "Nintendo": 10
+        },
+        "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2163&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+      }
+    ],
+    "Sony": [
+      {
+        "id": "2164",
+        "name": "Sony",
+        "parent_id": "2142",
+        "parent_name": "Flux RSS sous-cat\u00e9gories",
+        "item_count": 100,
+        "all_categories": [
+          "Sony"
+        ],
+        "category_counts": {
+          "Sony": 10
+        },
+        "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2164&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+      }
+    ],
+    "Wordpress": [
+      {
+        "id": "2301",
+        "name": "Wordpress",
+        "parent_id": "2300",
+        "parent_name": "Flux RSS sous-cat\u00e9gories",
+        "item_count": 100,
+        "all_categories": [
+          "Wordpress"
+        ],
+        "category_counts": {
+          "Wordpress": 10
+        },
+        "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2301&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+      }
+    ],
+    "Films": [
+      {
+        "id": "2189",
+        "name": "Films",
+        "parent_id": "2188",
+        "parent_name": "Flux RSS sous-cat\u00e9gories",
+        "item_count": 100,
+        "all_categories": [
+          "Films"
+        ],
+        "category_counts": {
+          "Films": 10
+        },
+        "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2189&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+      }
+    ],
+    "Hentai": [
+      {
+        "id": "2190",
+        "name": "Hentai",
+        "parent_id": "2188",
+        "parent_name": "Flux RSS sous-cat\u00e9gories",
+        "item_count": 100,
+        "all_categories": [
+          "Hentai"
+        ],
+        "category_counts": {
+          "Hentai": 10
+        },
+        "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2190&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+      }
+    ],
+    "Images": [
+      {
+        "id": "2191",
+        "name": "Images",
+        "parent_id": "2188",
+        "parent_name": "Flux RSS sous-cat\u00e9gories",
+        "item_count": 100,
+        "all_categories": [
+          "Images"
+        ],
+        "category_counts": {
+          "Images": 10
+        },
+        "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2191&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+      }
+    ],
+    "Ebooks": [
+      {
+        "id": "2401",
+        "name": "Ebooks",
+        "parent_id": "2188",
+        "parent_name": "Flux RSS sous-cat\u00e9gories",
+        "item_count": 100,
+        "all_categories": [
+          "Ebooks"
+        ],
+        "category_counts": {
+          "Ebooks": 10
+        },
+        "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2401&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+      }
+    ],
+    "Jeux": [
+      {
+        "id": "2402",
+        "name": "Jeux",
+        "parent_id": "2188",
+        "parent_name": "Flux RSS sous-cat\u00e9gories",
+        "item_count": 100,
+        "all_categories": [
+          "Jeux"
+        ],
+        "category_counts": {
+          "Jeux": 10
+        },
+        "rss_url": "https://www.yggtorrent.top/rss?action=generate&type=subcat&id=2402&passkey=DJdLXYBi2WmyQB0PdNWZ8u9RZEnTqiXT"
+      }
+    ]
+  }
+}
