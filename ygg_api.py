@@ -69,26 +69,12 @@ def authenticate_with_undetected_chromedriver(username, password):
     driver = None
     
     try:
-        # Create undetected Chrome driver
+        # Create undetected Chrome driver (simplified like working script)
         options = uc.ChromeOptions()
         options.add_argument('--no-sandbox')
         options.add_argument('--disable-dev-shm-usage')
         options.add_argument('--disable-gpu')
         options.add_argument('--window-size=1366,768')
-        options.add_argument('--disable-web-security')
-        options.add_argument('--disable-features=VizDisplayCompositor')
-        options.add_argument('--disable-extensions')
-        options.add_argument('--disable-plugins')
-        options.add_argument('--disable-images')
-        options.add_argument('--disable-default-apps')
-        options.add_argument('--disable-sync')
-        options.add_argument('--disable-translate')
-        options.add_argument('--hide-scrollbars')
-        options.add_argument('--mute-audio')
-        options.add_argument('--no-first-run')
-        options.add_argument('--disable-background-timer-throttling')
-        options.add_argument('--disable-backgrounding-occluded-windows')
-        options.add_argument('--disable-renderer-backgrounding')
         
         # Check if running in Docker (headless mode)
         import os
@@ -102,24 +88,8 @@ def authenticate_with_undetected_chromedriver(username, password):
         
         # Use the Chrome path we already checked
         
-        # Create driver with proper binary path
-        try:
-            if chrome_path:
-                logger.info(f"Using Chrome binary: {chrome_path}")
-                driver = uc.Chrome(options=options, browser_executable_path=chrome_path)
-            else:
-                # Let undetected-chromedriver auto-detect
-                logger.info("No Chrome binary found in common locations, using auto-detection")
-                driver = uc.Chrome(options=options)
-        except Exception as e:
-            logger.error(f"Failed to create Chrome driver with binary path: {e}")
-            # Fallback: try without specifying binary path
-            try:
-                logger.info("Trying fallback: Chrome driver without binary path")
-                driver = uc.Chrome(options=options)
-            except Exception as e2:
-                logger.error(f"Fallback also failed: {e2}")
-                raise Exception(f"Could not create Chrome driver. Original error: {e}, Fallback error: {e2}")
+        # Create driver (simplified like working script)
+        driver = uc.Chrome(options=options)
         
         logger.info("Navigating to YGG Torrent login page...")
         driver.get(LOGIN_URL)
@@ -127,9 +97,9 @@ def authenticate_with_undetected_chromedriver(username, password):
         # Wait for page to load
         time.sleep(5)
         
-        # Check if we're on Cloudflare challenge
+        # Check if we're on Cloudflare challenge (simplified like working script)
         page_source = driver.page_source.lower()
-        title = driver.title.lower() if driver.title else ""
+        title = driver.title.lower()
         
         cloudflare_indicators = [
             "just a moment",
@@ -142,21 +112,22 @@ def authenticate_with_undetected_chromedriver(username, password):
         is_cloudflare = any(indicator in page_source or indicator in title for indicator in cloudflare_indicators)
         
         if is_cloudflare:
-            logger.info("Cloudflare challenge detected, waiting for automatic bypass...")
+            logger.info("⏳ Cloudflare challenge detected, waiting for automatic bypass...")
+            # Wait for undetected-chromedriver to handle Cloudflare
             time.sleep(15)
             
             # Check again
             new_page_source = driver.page_source.lower()
-            new_title = driver.title.lower() if driver.title else ""
+            new_title = driver.title.lower()
             still_cloudflare = any(indicator in new_page_source or indicator in new_title for indicator in cloudflare_indicators)
             
             if still_cloudflare:
-                logger.warning("Cloudflare challenge still active after 15 seconds")
-                time.sleep(10)
+                logger.warning("⚠️ Cloudflare challenge still active after 15 seconds")
+                time.sleep(10)  # Wait a bit more
             else:
-                logger.info("Cloudflare challenge bypassed!")
+                logger.info("✅ Cloudflare challenge bypassed!")
         else:
-            logger.info("No Cloudflare challenge detected")
+            logger.info("✅ No Cloudflare challenge detected")
         
         # Find and fill the login form
         logger.info("Looking for login form...")
