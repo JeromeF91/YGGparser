@@ -131,27 +131,71 @@ def run_async_auth(username, password):
         page_content = loop.run_until_complete(page.get_content())
         if "cloudflare" in page_content.lower() or "checking your browser" in page_content.lower():
             logger.info("🛡️ Cloudflare challenge detected, waiting for automatic bypass...")
-            loop.run_until_complete(asyncio.sleep(10))
+            loop.run_until_complete(asyncio.sleep(15))  # Wait longer for Cloudflare
         
-        # Look for login form
+        # Wait for page to fully load
+        logger.info("⏳ Waiting for page to fully load...")
+        loop.run_until_complete(asyncio.sleep(5))
+        
+        # Debug: Save page content to see what we're working with
+        page_content = loop.run_until_complete(page.get_content())
+        with open("data/debug_zendriver_page.html", "w", encoding="utf-8") as f:
+            f.write(page_content)
+        logger.info("💾 Page content saved to data/debug_zendriver_page.html for debugging")
+        
+        # Look for login form with multiple attempts
         logger.info("🔍 Looking for login form...")
         
-        # Try to find username field
-        username_field = loop.run_until_complete(page.select("input[name='id']"))
-        if not username_field:
-            username_field = loop.run_until_complete(page.select("input[type='text']"))
+        # Try different selectors for username field
+        username_field = None
+        selectors_to_try = [
+            "input[name='id']",
+            "input[name='username']", 
+            "input[name='user']",
+            "input[type='text']",
+            "input[placeholder*='nom']",
+            "input[placeholder*='utilisateur']",
+            "input[placeholder*='username']"
+        ]
+        
+        for selector in selectors_to_try:
+            try:
+                logger.info(f"🔍 Trying selector: {selector}")
+                username_field = loop.run_until_complete(page.select(selector))
+                if username_field:
+                    logger.info(f"✅ Found username field with selector: {selector}")
+                    break
+            except Exception as e:
+                logger.info(f"❌ Selector {selector} failed: {e}")
+                continue
         
         if not username_field:
-            logger.error("❌ Could not find username field")
+            logger.error("❌ Could not find username field with any selector")
             return False
         
-        # Try to find password field
-        password_field = loop.run_until_complete(page.select("input[name='pass']"))
-        if not password_field:
-            password_field = loop.run_until_complete(page.select("input[type='password']"))
+        # Try different selectors for password field
+        password_field = None
+        password_selectors = [
+            "input[name='pass']",
+            "input[name='password']",
+            "input[type='password']",
+            "input[placeholder*='mot de passe']",
+            "input[placeholder*='password']"
+        ]
+        
+        for selector in password_selectors:
+            try:
+                logger.info(f"🔍 Trying password selector: {selector}")
+                password_field = loop.run_until_complete(page.select(selector))
+                if password_field:
+                    logger.info(f"✅ Found password field with selector: {selector}")
+                    break
+            except Exception as e:
+                logger.info(f"❌ Password selector {selector} failed: {e}")
+                continue
         
         if not password_field:
-            logger.error("❌ Could not find password field")
+            logger.error("❌ Could not find password field with any selector")
             return False
         
         logger.info("✅ Found login form fields")
@@ -161,13 +205,32 @@ def run_async_auth(username, password):
         loop.run_until_complete(username_field.type(username))
         loop.run_until_complete(password_field.type(password))
         
-        # Find and click submit button
-        submit_button = loop.run_until_complete(page.select("button[type='submit']"))
-        if not submit_button:
-            submit_button = loop.run_until_complete(page.select("input[type='submit']"))
+        # Try different selectors for submit button
+        submit_button = None
+        submit_selectors = [
+            "button[type='submit']",
+            "input[type='submit']",
+            "button:contains('Connexion')",
+            "button:contains('Login')",
+            "input[value*='Connexion']",
+            "input[value*='Login']",
+            "button",
+            "input[type='submit']"
+        ]
+        
+        for selector in submit_selectors:
+            try:
+                logger.info(f"🔍 Trying submit selector: {selector}")
+                submit_button = loop.run_until_complete(page.select(selector))
+                if submit_button:
+                    logger.info(f"✅ Found submit button with selector: {selector}")
+                    break
+            except Exception as e:
+                logger.info(f"❌ Submit selector {selector} failed: {e}")
+                continue
         
         if not submit_button:
-            logger.error("❌ Could not find submit button")
+            logger.error("❌ Could not find submit button with any selector")
             return False
         
         logger.info("🚀 Submitting login form...")
