@@ -120,13 +120,34 @@ def authenticate_with_undetected_chromedriver(username, password):
         options.add_argument('--disable-gpu')
         options.add_argument('--window-size=1366,768')
         
-        # Check if running in Docker (headless mode)
+        # Check if running in headless environment (Docker or server without display)
         import os
-        if os.path.exists('/.dockerenv') or os.environ.get('DOCKER_CONTAINER'):
+        is_headless_env = (
+            os.path.exists('/.dockerenv') or 
+            os.environ.get('DOCKER_CONTAINER') or
+            not os.environ.get('DISPLAY') or
+            os.environ.get('SSH_CLIENT') or
+            os.environ.get('SSH_TTY')
+        )
+        
+        if is_headless_env:
             options.add_argument('--headless')
             options.add_argument('--disable-gpu')
+            options.add_argument('--no-sandbox')
+            options.add_argument('--disable-dev-shm-usage')
             options.add_argument('--remote-debugging-port=9222')
-            logger.info("Running in Docker - using headless mode")
+            options.add_argument('--disable-extensions')
+            options.add_argument('--disable-plugins')
+            options.add_argument('--disable-images')
+            options.add_argument('--disable-javascript')
+            options.add_argument('--disable-web-security')
+            options.add_argument('--disable-features=VizDisplayCompositor')
+            options.add_argument('--virtual-time-budget=5000')
+            options.add_argument('--run-all-compositor-stages-before-draw')
+            options.add_argument('--disable-background-timer-throttling')
+            options.add_argument('--disable-backgrounding-occluded-windows')
+            options.add_argument('--disable-renderer-backgrounding')
+            logger.info("Running in headless environment - using headless mode")
         else:
             logger.info("Running locally - using non-headless mode for better Cloudflare bypass")
         
@@ -142,10 +163,36 @@ def authenticate_with_undetected_chromedriver(username, password):
                 driver = uc.Chrome(options=options)
         except Exception as e:
             logger.error(f"Failed to create Chrome driver: {e}")
-            # Try without specifying binary path as fallback
+            # Try without specifying binary path as fallback (create fresh options)
             try:
                 logger.info("Trying fallback: Chrome driver without binary path")
-                driver = uc.Chrome(options=options)
+                # Create fresh options for fallback
+                fallback_options = uc.ChromeOptions()
+                fallback_options.add_argument('--no-sandbox')
+                fallback_options.add_argument('--disable-dev-shm-usage')
+                fallback_options.add_argument('--disable-gpu')
+                fallback_options.add_argument('--window-size=1366,768')
+                
+                # Add headless options if in headless environment
+                if is_headless_env:
+                    fallback_options.add_argument('--headless')
+                    fallback_options.add_argument('--disable-gpu')
+                    fallback_options.add_argument('--no-sandbox')
+                    fallback_options.add_argument('--disable-dev-shm-usage')
+                    fallback_options.add_argument('--remote-debugging-port=9222')
+                    fallback_options.add_argument('--disable-extensions')
+                    fallback_options.add_argument('--disable-plugins')
+                    fallback_options.add_argument('--disable-images')
+                    fallback_options.add_argument('--disable-javascript')
+                    fallback_options.add_argument('--disable-web-security')
+                    fallback_options.add_argument('--disable-features=VizDisplayCompositor')
+                    fallback_options.add_argument('--virtual-time-budget=5000')
+                    fallback_options.add_argument('--run-all-compositor-stages-before-draw')
+                    fallback_options.add_argument('--disable-background-timer-throttling')
+                    fallback_options.add_argument('--disable-backgrounding-occluded-windows')
+                    fallback_options.add_argument('--disable-renderer-backgrounding')
+                
+                driver = uc.Chrome(options=fallback_options)
             except Exception as e2:
                 logger.error(f"Fallback also failed: {e2}")
                 raise Exception(f"Could not create Chrome driver. Please install Chrome/Chromium. Original error: {e}, Fallback error: {e2}")

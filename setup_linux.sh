@@ -83,9 +83,13 @@ fi
 # Install system dependencies
 echo "📦 Installing system dependencies..."
 if command -v apt &> /dev/null; then
-    sudo apt install -y wget curl unzip
+    sudo apt install -y wget curl unzip xvfb
 elif command -v yum &> /dev/null; then
-    sudo yum install -y wget curl unzip
+    sudo yum install -y wget curl unzip xorg-x11-server-Xvfb
+elif command -v dnf &> /dev/null; then
+    sudo dnf install -y wget curl unzip xorg-x11-server-Xvfb
+elif command -v pacman &> /dev/null; then
+    sudo pacman -S --noconfirm wget curl unzip xorg-server-xvfb
 fi
 
 # Create virtual environment
@@ -133,5 +137,9 @@ echo "   1. Activate virtual environment: source ygg_env/bin/activate"
 echo "   2. Start the API: python3 ygg_api.py"
 echo ""
 echo "🌐 API will be available at: http://localhost:8080"
+echo ""
+echo "💡 If running on a headless server, the API will automatically use headless mode"
+echo "   For better compatibility, you can also run with virtual display:"
+echo "   xvfb-run -a python3 ygg_api.py"
 echo ""
 echo "📖 For more information, see API_README.md"
