@@ -47,9 +47,36 @@ def authenticate_with_undetected_chromedriver(username, password):
         options.add_argument('--disable-dev-shm-usage')
         options.add_argument('--disable-gpu')
         options.add_argument('--window-size=1366,768')
-        # Note: Running in non-headless mode for better Cloudflare bypass
+        options.add_argument('--disable-web-security')
+        options.add_argument('--disable-features=VizDisplayCompositor')
+        options.add_argument('--disable-extensions')
+        options.add_argument('--disable-plugins')
+        options.add_argument('--disable-images')
+        options.add_argument('--disable-default-apps')
+        options.add_argument('--disable-sync')
+        options.add_argument('--disable-translate')
+        options.add_argument('--hide-scrollbars')
+        options.add_argument('--mute-audio')
+        options.add_argument('--no-first-run')
+        options.add_argument('--disable-background-timer-throttling')
+        options.add_argument('--disable-backgrounding-occluded-windows')
+        options.add_argument('--disable-renderer-backgrounding')
         
-        driver = uc.Chrome(options=options)
+        # Check if running in Docker (headless mode)
+        import os
+        if os.path.exists('/.dockerenv') or os.environ.get('DOCKER_CONTAINER'):
+            options.add_argument('--headless')
+            options.add_argument('--disable-gpu')
+            options.add_argument('--remote-debugging-port=9222')
+            logger.info("Running in Docker - using headless mode")
+        else:
+            logger.info("Running locally - using non-headless mode for better Cloudflare bypass")
+        
+        # Use Chromium in Docker environment
+        if os.path.exists('/.dockerenv') or os.environ.get('DOCKER_CONTAINER'):
+            driver = uc.Chrome(options=options, browser_executable_path='/usr/bin/chromium')
+        else:
+            driver = uc.Chrome(options=options)
         
         logger.info("Navigating to YGG Torrent login page...")
         driver.get(LOGIN_URL)
