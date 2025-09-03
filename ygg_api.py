@@ -37,13 +37,23 @@ LOGIN_URL = f"{BASE_URL}/auth/login"
 def check_chrome_installation():
     """Check if Chrome/Chromium is properly installed and accessible."""
     possible_paths = [
+        # Linux paths
         '/usr/bin/google-chrome',
         '/usr/bin/google-chrome-stable',
         '/usr/bin/chromium',
         '/usr/bin/chromium-browser',
-        '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',  # macOS
-        'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',  # Windows
-        'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe'  # Windows
+        '/usr/bin/chromium-browser-stable',
+        '/snap/bin/chromium',
+        '/opt/google/chrome/chrome',
+        '/usr/local/bin/chromium',
+        '/usr/local/bin/google-chrome',
+        # macOS paths
+        '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+        '/Applications/Chromium.app/Contents/MacOS/Chromium',
+        # Windows paths
+        'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
+        'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe',
+        'C:\\Program Files\\Chromium\\Application\\chrome.exe'
     ]
     
     found_paths = []
@@ -56,6 +66,40 @@ def check_chrome_installation():
         return found_paths[0]  # Return first found path
     else:
         logger.warning("No Chrome/Chromium installation found in common locations")
+        
+        # Try to find Chrome using system commands
+        import subprocess
+        try:
+            # Try 'which' command
+            result = subprocess.run(['which', 'google-chrome'], capture_output=True, text=True)
+            if result.returncode == 0 and result.stdout.strip():
+                chrome_path = result.stdout.strip()
+                logger.info(f"Found Chrome via 'which' command: {chrome_path}")
+                return chrome_path
+        except:
+            pass
+        
+        try:
+            # Try 'which chromium'
+            result = subprocess.run(['which', 'chromium'], capture_output=True, text=True)
+            if result.returncode == 0 and result.stdout.strip():
+                chrome_path = result.stdout.strip()
+                logger.info(f"Found Chromium via 'which' command: {chrome_path}")
+                return chrome_path
+        except:
+            pass
+        
+        try:
+            # Try 'which chromium-browser'
+            result = subprocess.run(['which', 'chromium-browser'], capture_output=True, text=True)
+            if result.returncode == 0 and result.stdout.strip():
+                chrome_path = result.stdout.strip()
+                logger.info(f"Found Chromium via 'which chromium-browser' command: {chrome_path}")
+                return chrome_path
+        except:
+            pass
+        
+        logger.warning("Could not find Chrome/Chromium using system commands either")
         return None
 
 
@@ -88,8 +132,23 @@ def authenticate_with_undetected_chromedriver(username, password):
         
         # Use the Chrome path we already checked
         
-        # Create driver (simplified like working script)
-        driver = uc.Chrome(options=options)
+        # Create driver with proper error handling
+        try:
+            if chrome_path:
+                logger.info(f"Using Chrome binary: {chrome_path}")
+                driver = uc.Chrome(options=options, browser_executable_path=chrome_path)
+            else:
+                logger.info("No Chrome path found, using auto-detection")
+                driver = uc.Chrome(options=options)
+        except Exception as e:
+            logger.error(f"Failed to create Chrome driver: {e}")
+            # Try without specifying binary path as fallback
+            try:
+                logger.info("Trying fallback: Chrome driver without binary path")
+                driver = uc.Chrome(options=options)
+            except Exception as e2:
+                logger.error(f"Fallback also failed: {e2}")
+                raise Exception(f"Could not create Chrome driver. Please install Chrome/Chromium. Original error: {e}, Fallback error: {e2}")
         
         logger.info("Navigating to YGG Torrent login page...")
         driver.get(LOGIN_URL)
