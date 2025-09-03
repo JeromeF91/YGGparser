@@ -137,18 +137,18 @@ def run_async_auth(username, password):
         logger.info("🔍 Looking for login form...")
         
         # Try to find username field
-        username_field = loop.run_until_complete(page.find_element("input[name='id']"))
+        username_field = loop.run_until_complete(page.select("input[name='id']"))
         if not username_field:
-            username_field = loop.run_until_complete(page.find_element("input[type='text']"))
+            username_field = loop.run_until_complete(page.select("input[type='text']"))
         
         if not username_field:
             logger.error("❌ Could not find username field")
             return False
         
         # Try to find password field
-        password_field = loop.run_until_complete(page.find_element("input[name='pass']"))
+        password_field = loop.run_until_complete(page.select("input[name='pass']"))
         if not password_field:
-            password_field = loop.run_until_complete(page.find_element("input[type='password']"))
+            password_field = loop.run_until_complete(page.select("input[type='password']"))
         
         if not password_field:
             logger.error("❌ Could not find password field")
@@ -162,9 +162,9 @@ def run_async_auth(username, password):
         loop.run_until_complete(password_field.type(password))
         
         # Find and click submit button
-        submit_button = loop.run_until_complete(page.find_element("button[type='submit']"))
+        submit_button = loop.run_until_complete(page.select("button[type='submit']"))
         if not submit_button:
-            submit_button = loop.run_until_complete(page.find_element("input[type='submit']"))
+            submit_button = loop.run_until_complete(page.select("input[type='submit']"))
         
         if not submit_button:
             logger.error("❌ Could not find submit button")
