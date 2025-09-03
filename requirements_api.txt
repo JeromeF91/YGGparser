@@ -1,5 +1,5 @@
 # YGG Torrent API Dependencies
-flask==2.3.3
+flask[async]==2.3.3
 flask-cors==4.0.0
 undetected-chromedriver==3.5.5
 cloudscraper==1.2.71
