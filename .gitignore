@@ -1,0 +1,53 @@
+# Logs
+logs/
+*.log
+
+# Data files (temporary downloads and test files)
+data/*.torrent
+data/*.html
+data/*.xml
+data/manual_*
+data/working_*
+data/auto_*
+data/correct_*
+data/multi_*
+data/final_*
+data/engine_*
+data/rss_*
+data/debug_*
+data/undetected_*
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+
+# Configuration files with sensitive data
+config_local.py
+.env
+secrets.json
+
+# Test files
+test_*
+*_test.py
